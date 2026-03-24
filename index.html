@@ -1053,7 +1053,7 @@ function refreshCompareSelectors(){
     const el=document.getElementById('cmpSelect'+side);
     if(!myProfiles.length){el.innerHTML='<div style="font-size:13px;color:var(--muted);margin-bottom:8px">No saved profiles yet</div>';return}
     // Add built-in "My Stats" option
-    const allOptions=[{id:'__me__',name:'My Stats (pre-loaded)'},...myProfiles];
+    const allOptions=[{id:'__me__',name:'Victorias Stats'},...myProfiles];
     el.innerHTML=`<select onchange="setCmpProfile('${side}',this.value)" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:13px;background:var(--cream);color:var(--text);margin-bottom:10px">
       <option value="">— Choose a saved profile —</option>
       ${allOptions.map(p=>`<option value="${p.id}">${p.name}</option>`).join('')}
@@ -1064,7 +1064,7 @@ function refreshCompareSelectors(){
 function setCmpProfile(side,id){
   if(!id)return;
   let data,name;
-  if(id==='__me__'){data=MY_DATA;name='My Stats';}
+  if(id==='__me__'){data=MY_DATA;name='Victorias Stats';}
   else{
     const p=myProfiles.find(x=>x.id===id);if(!p)return;
     data=reconstructFromSummary(p);name=p.name;
